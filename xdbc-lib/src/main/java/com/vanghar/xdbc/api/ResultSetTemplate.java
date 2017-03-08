@@ -1,0 +1,102 @@
+package com.vanghar.xdbc.api;
+
+import java.io.InputStream;
+import java.io.Reader;
+import java.math.BigDecimal;
+import java.net.URL;
+import java.sql.Array;
+import java.sql.Blob;
+import java.sql.Clob;
+import java.sql.Date;
+import java.sql.NClob;
+import java.sql.Ref;
+import java.sql.RowId;
+import java.sql.SQLException;
+import java.sql.SQLXML;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Map;
+
+public interface ResultSetTemplate<T>
+    extends BoxedPrimitives.Getter.ByType<T>,
+        BoxedPrimitives.Updater.ByType<T>,
+        TimeValues.Getter.ByType<T>,
+        TimeValues.Updater.ByType<T>    
+{
+    public String getString(T columnKey) throws SQLException;
+    public boolean getBoolean(T columnKey) throws SQLException;
+    public byte getByte(T columnKey) throws SQLException;
+    public short getShort(T columnKey) throws SQLException;
+    public int getInt(T columnKey) throws SQLException;
+    public long getLong(T columnKey) throws SQLException;
+    public float getFloat(T columnKey) throws SQLException;
+    public double getDouble(T columnKey) throws SQLException;
+    public BigDecimal getBigDecimal(T columnKey, int scale) throws SQLException;
+    public byte[] getBytes(T columnKey) throws SQLException;
+    public Date getDate(T columnKey) throws SQLException;
+    public Time getTime(T columnKey) throws SQLException;
+    public Timestamp getTimestamp(T columnKey) throws SQLException;
+    public InputStream getAsciiStream(T columnKey) throws SQLException;
+    public InputStream getUnicodeStream(T columnKey) throws SQLException;
+    public InputStream getBinaryStream(T columnKey) throws SQLException;
+    public Object getObject(T columnKey) throws SQLException;
+    public Reader getCharacterStream(T columnKey) throws SQLException;
+    public BigDecimal getBigDecimal(T columnKey) throws SQLException;
+    public void updateNull(T columnKey) throws SQLException;
+    public void updateBoolean(T columnKey, boolean x) throws SQLException;
+    public void updateByte(T columnKey, byte x) throws SQLException;
+    public void updateShort(T columnKey, short x) throws SQLException;
+    public void updateInt(T columnKey, int x) throws SQLException;
+    public void updateLong(T columnKey, long x) throws SQLException;
+    public void updateFloat(T columnKey, float x) throws SQLException;
+    public void updateDouble(T columnKey, double x) throws SQLException;
+    public void updateBigDecimal(T columnKey, BigDecimal x) throws SQLException;
+    public void updateString(T columnKey, String x) throws SQLException;
+    public void updateBytes(T columnKey, byte[] x) throws SQLException;
+    public void updateDate(T columnKey, Date x) throws SQLException;
+    public void updateTime(T columnKey, Time x) throws SQLException;
+    public void updateTimestamp(T columnKey, Timestamp x) throws SQLException;
+    public void updateAsciiStream(T columnKey, InputStream x, int length) throws SQLException;
+    public void updateBinaryStream(T columnKey, InputStream x, int length) throws SQLException;
+    public void updateCharacterStream(T columnKey, Reader x, int length) throws SQLException;
+    public void updateObject(T columnKey, Object x, int scaleOrLength) throws SQLException;
+    public void updateObject(T columnKey, Object x) throws SQLException;
+    public Object getObject(T columnKey, Map<String, Class<?>> map) throws SQLException;
+    public Ref getRef(T columnKey) throws SQLException;
+    public Blob getBlob(T columnKey) throws SQLException;
+    public Clob getClob(T columnKey) throws SQLException;
+    public Array getArray(T columnKey) throws SQLException;
+    public Date getDate(T columnKey, Calendar cal) throws SQLException;
+    public Time getTime(T columnKey, Calendar cal) throws SQLException;
+    public Timestamp getTimestamp(T columnKey, Calendar cal) throws SQLException;
+    public URL getURL(T columnKey) throws SQLException;
+    public void updateRef(T columnKey, Ref x) throws SQLException;
+    public void updateBlob(T columnKey, Blob x) throws SQLException;
+    public void updateClob(T columnKey, Clob x) throws SQLException;
+    public void updateArray(T columnKey, Array x) throws SQLException;
+    public RowId getRowId(T columnKey) throws SQLException;
+    public void updateRowId(T columnKey, RowId x) throws SQLException;
+    public void updateNString(T columnKey, String nString) throws SQLException;
+    public void updateNClob(T columnKey, NClob nClob) throws SQLException;
+    public NClob getNClob(T columnKey) throws SQLException;
+    public SQLXML getSQLXML(T columnKey) throws SQLException;
+    public void updateSQLXML(T columnKey, SQLXML xmlObject) throws SQLException;
+    public String getNString(T columnKey) throws SQLException;
+    public Reader getNCharacterStream(T columnKey) throws SQLException;
+    public void updateNCharacterStream(T columnKey, Reader x, long length) throws SQLException;
+    public void updateAsciiStream(T columnKey, InputStream x, long length) throws SQLException;
+    public void updateBinaryStream(T columnKey, InputStream x, long length) throws SQLException;
+    public void updateCharacterStream(T columnKey, Reader x, long length) throws SQLException;
+    public void updateBlob(T columnKey, InputStream inputStream, long length) throws SQLException;
+    public void updateClob(T columnKey, Reader reader, long length) throws SQLException;
+    public void updateNClob(T columnKey, Reader reader, long length) throws SQLException;
+    public void updateNCharacterStream(T columnKey, Reader x) throws SQLException;
+    public void updateAsciiStream(T columnKey, InputStream x) throws SQLException;
+    public void updateBinaryStream(T columnKey, InputStream x) throws SQLException;
+    public void updateCharacterStream(T columnKey, Reader x) throws SQLException;
+    public void updateBlob(T columnKey, InputStream inputStream) throws SQLException;
+    public void updateClob(T columnKey, Reader reader) throws SQLException;
+    public void updateNClob(T columnKey, Reader reader) throws SQLException;
+    public <X> X getObject(T columnKey, Class<X> type) throws SQLException;    
+}

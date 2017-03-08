@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.vanghar</groupId>
+  <artifactId>xdbc-lib</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>xdbc-lib</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <v-guava>21.0</v-guava>
+
+    <v-jta>1.1</v-jta>
+    <v-hikari>2.6.0</v-hikari>
+    <v-jtds>1.3.1</v-jtds>
+    <v-tomcat>8.5.11</v-tomcat>
+
+    <v-slf4j>1.7.24</v-slf4j>
+    <v-log4jdbc>1.2</v-log4jdbc>
+    
+    <v-junit>4.12</v-junit>
+    <v-mockito>2.7.14</v-mockito>
+    <v-powermock>1.6.6</v-powermock>
+  </properties>
+
+  <dependencies>
+    <!-- Local deps -->
+    <dependency>
+      <groupId>com.vanghar</groupId>
+      <artifactId>common-util</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <!-- Utils -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${v-guava}</version>
+    </dependency>
+
+    <!-- DB library dependencies -->
+    <dependency>
+      <groupId>javax.transaction</groupId>
+      <artifactId>jta</artifactId>
+      <version>${v-jta}</version>
+    </dependency>    
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>${v-hikari}</version>
+    </dependency>    
+    <dependency>
+      <groupId>net.sourceforge.jtds</groupId>
+      <artifactId>jtds</artifactId>
+      <version>${v-jtds}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jdbc</artifactId>
+      <version>${v-tomcat}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.tomcat</groupId>
+          <artifactId>tomcat-juli</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>    
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-juli</artifactId>
+      <version>${v-tomcat}</version>
+    </dependency>    
+    
+    <!-- DB Vendor dependencies -->
+    <!-- TODO -->
+    
+    <!-- Logging dependencies -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${v-slf4j}</version>
+    </dependency>    
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${v-slf4j}</version>
+      <scope>test</scope> <!-- NB: test scope -->
+    </dependency>    
+    <dependency>
+      <groupId>com.googlecode.log4jdbc</groupId>
+      <artifactId>log4jdbc</artifactId>
+      <version>1.2</version>
+    </dependency>    
+
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${v-junit}</version>
+      <scope>test</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${v-mockito}</version>
+      <scope>test</scope>
+    </dependency>    
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-module-junit4</artifactId>
+      <version>${v-powermock}</version>
+      <scope>test</scope>
+    </dependency>    
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-api-mockito</artifactId>
+      <version>${v-powermock}</version>
+      <scope>test</scope>
+    </dependency>    
+  
+  </dependencies>
+</project>
